@@ -16,7 +16,7 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	private Shape drawingShape;
 	/** A set of Circles belonging to this Gizmo. They act as collision detectors
 	 * with a ball, often at the edges of a shape. **/
-	protected Set<Circle> circleSet = new HashSet<Circle>();
+	protected Set<Circle> circleSet;
 	/**
 	 * A set of Line Segments around the edge of the absorber, which will act as
 	 * the collision detector with a ball

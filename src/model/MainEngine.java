@@ -198,6 +198,52 @@ public class MainEngine extends Observable implements IMainEngine {
 						}
 					}
 				}
+				
+				if (gizmo instanceof Flipper) {
+					lsSet = ((Flipper) gizmo).getLineSeg();
+					circleSet = ((Flipper) gizmo).getCircles();
+					
+					// Checking collision with left flipper
+					if (((Flipper) gizmo).isLeftFlipper()){
+						for (Circle circle : circleSet) {
+							time = Geometry.timeUntilRotatingCircleCollision(circle, ((Flipper) gizmo).getRotationPoint(), 12.5664, ballCircle, ballVelocity);
+							if (time < shortestTime) {
+								shortestTime = time;
+								newVelo = Geometry.reflectRotatingCircle(circle, ((Flipper) gizmo).getRotationPoint(), 12.5664, ballCircle, ballVelocity, 2.0);
+								colliderID = gizmo.getGizmoID();
+							}
+						}
+						for (LineSegment line : lsSet) {
+							time = Geometry.timeUntilRotatingWallCollision(line, ((Flipper) gizmo).getRotationPoint(), 12.5664, ballCircle, ballVelocity);
+							if (time < shortestTime) {
+								shortestTime = time;
+								newVelo = Geometry.reflectRotatingWall(line, ((Flipper) gizmo).getRotationPoint(), 12.5664, ballCircle, ballVelocity, 2.0);
+								colliderID = gizmo.getGizmoID();
+							}
+						}
+					}
+					else { // collision with right flipper
+						for (Circle circle : circleSet) {
+							time = Geometry.timeUntilRotatingCircleCollision(circle, ((Flipper) gizmo).getRotationPoint(), -12.5664, ballCircle, ballVelocity);
+							if (time < shortestTime) {
+								shortestTime = time;
+								newVelo = Geometry.reflectRotatingCircle(circle, ((Flipper) gizmo).getRotationPoint(), -12.5664, ballCircle, ballVelocity, 2.0);
+								colliderID = gizmo.getGizmoID();
+							}
+						}
+						for (LineSegment line : lsSet) {
+							time = Geometry.timeUntilRotatingWallCollision(line, ((Flipper) gizmo).getRotationPoint(), -12.5664, ballCircle, ballVelocity);
+							if (time < shortestTime) {
+								shortestTime = time;
+								newVelo = Geometry.reflectRotatingWall(line, ((Flipper) gizmo).getRotationPoint(), -12.5664, ballCircle, ballVelocity, 2.0);
+								colliderID = gizmo.getGizmoID();
+							}
+						}
+					}
+					
+					
+				}
+				
 			}
 
 			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID);

@@ -15,21 +15,8 @@ public class BallTests {
 	Ball b = new Ball("B1", Color.blue, 2.5, 2.5, test2, 3.5);
 	Ball c = new Ball("C1", Color.red, 2.0, 2.0, test1, 3.0);
 	@Test
-	
-	/*public void rotateTest() {
-		assertFalse(a.rotate(50));
-		assertFalse(b.rotate(100));
-		assertFalse(c.rotate(0));
-	}*/
-	
-	public void moveTest(){
-		//assertTrue(a.move((int)2.0, (int) 3.0));
-		//assertTrue(b.move((int)2.5, (int) 2.0));
-		//assertTrue(c.move((int)1.0, (int) 1.0));
-		
-		//assertFalse(a.move((int)2.0, (int) 2.0));
-		//assertFalse(b.move((int)2.5, (int) 2.5));
-		//assertFalse(c.move((int)2.0, (int) 2.0));
+	public void test() {
+		fail("Not yet implemented");
 	}
 
 }
