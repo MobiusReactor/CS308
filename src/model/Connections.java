@@ -198,7 +198,6 @@ public class Connections {
 				}
 			}
 		}
-
 		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyReleasedMap.entrySet()) {
 			for (AGizmoComponent g : e.getValue()) {
 				if (g.getGizmoID().equals(gizmo.getGizmoID())) {
